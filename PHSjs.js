@@ -1,9 +1,14 @@
-const pages = document.querySelectorAll(".page");
+const backgrounds = [
+  'PHSCOLLAGEdark.jpg',
+  'KINGDAT2.jpeg',
+  'PRAYTHENPREY2.JPG',
+  'BASDUCK2.jpg',
+  'KINGDATARTIST.jpg',
+  'KINGDATARTISTEYE.jpg'
+];
 
-let index = 0;
-const total = pages.length;
-const backgrounds = ['PHSCOLLAGEdark.jpg', 'KINGDAT2.jpeg', 'PRAYTHENPREY2.JPG', 'BASDUCK2.jpg', 'KINGDATARTIST.jpg','KINGDATARTISTEYE.jpg'];
-const sizes = ['cover', 'contain','cover','contain','contain','contain'];
+const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
+
 
 /* UPDATE VIEW */
 function updateCarousel() {
