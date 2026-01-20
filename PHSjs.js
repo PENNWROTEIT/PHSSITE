@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // CAROUSEL BACKGROUNDS
   // -------------------
   const pages = document.querySelectorAll(".page");
+  if(pages.length === 0) {
+    console.warn("No .page elements found. Add .page divs in HTML!");
+    return; // stop if no pages
+  }
+
   let index = 0;
   const total = pages.length;
   const backgrounds = [
@@ -24,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------
-  // CAROUSEL NAVIGATION
+  // NAVIGATION BUTTONS
   // -------------------
   const prev = document.getElementById("prev");
   const next = document.getElementById("next");
@@ -39,18 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
       index = (index + 1) % total;
       updateCarousel();
     });
+  } else {
+    console.warn("Navigation buttons #prev or #next not found!");
   }
 
+  // INITIALIZE
   updateCarousel();
 
-  // -------------------
-  // IMAGE SLIDESHOW
-  // -------------------
-  const slideImages = [
-    'p17.jpg', 'P19.jpg', 'P11.jpg', 'P3.jpg', 'P16.jpg','P13.jpg','P23.jpg','P9.jpg', 
-    'P18.jpg','P2.jpg','P24.jpg','P4.jpg', 'P32.jpg','P33.jpg','P6.jpg'
-  ];
-  const slideTitles = [
-    'xPATIENCEx', 'xLEFTYx', 'xTHECOOLINGPERIODx', 'xSTORYOFTHEZODIx', 'xSYXx', 
-    'xAVENTOURENEx','xFRUITSOFWISDOMx','xBALLERINAHOPSx','xCHANGEDSUITSx',
-    'xKNOCKOUTPUNCHx'
+});
