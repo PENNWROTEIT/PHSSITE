@@ -1,0 +1,395 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #111;
+    color: white;
+    overflow-x: hidden;
+    background-image: url("../PHS IMAGES/PHSCOLLAGEdark.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Changed from fixed to scroll for better performance */
+}
+
+/* NAV AREA */
+.carousel-nav {
+    margin: 40px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-nav button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 20px;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.carousel-nav button:hover {
+    background: #33ff00;
+}
+
+/* CONTENT */
+main {
+    text-align: center;
+    padding: 40px;
+}
+
+.page {
+    display: none;
+    font-size: 24px;
+}
+
+.page.active {
+    display: block;
+}
+
+.site-logo {
+    max-width: 1300px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+}
+
+.site-logo3 {
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+}
+
+.site-logo2 {
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: pulse 160s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.text-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+}
+.text-box2 {
+    background: rgba(255, 0, 0, 0.705);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+}
+    
+.text-box3 {
+    background: rgba(26, 0, 0, 0.753);
+    padding: 15px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+
+    
+}
+    
+.text-box4 {
+    background: rgba(255, 255, 255, 0.575);
+    padding: 30px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+
+    
+}
+
+
+.page p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.portfolio-video {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.subscribe-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    width: 200px;
+    transition: background 0.3s;
+}
+
+.subscribe-btn:hover {
+    background: #5eff01;
+}
+
+.slideshow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.slide-container {
+    text-align: center;
+}
+
+.slideshow img {
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.slide-info {
+    margin-top: 15px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slide-btn {
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 20px;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.slide-btn:hover {
+    background: #33ff00;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.background-spacer {
+    height: 200px;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: white;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #cc0000;
+}
+
+
+-------------INSTAGRAM POST OPTIONS--------------
+
+.instagram-feed {
+  max-width: 1000px;
+  margin: center;
+}
+
+.instagram-media {
+  width: 100% !important;
+  max-width: 1000px !important;
+}
+
+/* Section centers content on the page */
+.instagram-link-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* The container box */
+.instagram-link-container {
+  padding: 20px 40px;
+  border: 2px solid #e1306c; /* Instagram pink */
+  border-radius: 12px;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Link styling */
+.instagram-link-container a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e1306c;
+  text-decoration: none;
+}
+
+/* Hover effect */
+.instagram-link-container a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== */
+/* Global Footer Styling */
+/* ===================== */
+
+.site-footer {
+  background-color: #111;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: #e1306c; /* Instagram pink */
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Friendly */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
