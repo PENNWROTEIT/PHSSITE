@@ -9,7 +9,7 @@ const sizes = ['cover', 'contain','cover','contain','contain','contain'];
 function updateCarousel() {
     pages.forEach(p => p.classList.remove("active"));
     pages[index].classList.add("active");
-    document.body.style.backgroundImage = `url("../PHS IMAGES/${backgrounds[index]}")`;
+    document.body.style.backgroundImage = `url("${backgrounds[index]}")`;
     document.body.style.backgroundSize = sizes[index];
 }
 
@@ -61,7 +61,7 @@ const nextSlide = document.querySelector('.next-slide');
 
 function updateSlide() {
     if (slideImg) {
-        slideImg.src = `../PHS IMAGES/${slideImages[slideIndex]}`;
+        slideImg.src = `${slideImages[slideIndex]}`;
     }
     if (slideTitle) {
         slideTitle.textContent = slideTitles[slideIndex];
