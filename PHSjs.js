@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     /* =========================
        PAGE CAROUSEL + BACKGROUNDS
     ========================= */
@@ -14,29 +15,39 @@ document.addEventListener('DOMContentLoaded', () => {
         'KINGDATARTIST.jpg',
         'KINGDATARTISTEYE.jpg'
     ];
+
     const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
 
     const prevBtn = document.getElementById('prev');
     const nextBtn = document.getElementById('next');
 
     function updateCarousel() {
+        if (!pages.length) return;
+
         pages.forEach(p => p.classList.remove('active'));
         pages[pageIndex].classList.add('active');
-        document.body.style.backgroundImage = `url("${backgrounds[pageIndex]}")`;
-        document.body.style.backgroundSize = sizes[pageIndex];
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundRepeat = 'no-repeat';
+
+        if (backgrounds[pageIndex]) {
+            document.body.style.backgroundImage = `url("${backgrounds[pageIndex]}")`;
+            document.body.style.backgroundSize = sizes[pageIndex] || 'cover';
+            document.body.style.backgroundPosition = 'center';
+            document.body.style.backgroundRepeat = 'no-repeat';
+        }
     }
 
-    prevBtn.addEventListener('click', () => {
-        pageIndex = (pageIndex - 1 + totalPages) % totalPages;
-        updateCarousel();
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            pageIndex = (pageIndex - 1 + totalPages) % totalPages;
+            updateCarousel();
+        });
+    }
 
-    nextBtn.addEventListener('click', () => {
-        pageIndex = (pageIndex + 1) % totalPages;
-        updateCarousel();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            pageIndex = (pageIndex + 1) % totalPages;
+            updateCarousel();
+        });
+    }
 
     updateCarousel();
 
@@ -44,16 +55,18 @@ document.addEventListener('DOMContentLoaded', () => {
        SLIDESHOW
     ========================= */
     const slideImages = [
-        'p17.jpg', 'P19.jpg', 'P11.jpg', 'P3.jpg', 'P16.jpg',
-        'P13.jpg','P23.jpg','P9.jpg', 'P18.jpg','P2.jpg','P24.jpg',
-        'P4.jpg', 'P32.jpg','P33.jpg','P6.jpg'
+        'p17.jpg','P19.jpg','P11.jpg','P3.jpg','P16.jpg',
+        'P13.jpg','P23.jpg','P9.jpg','P18.jpg','P2.jpg',
+        'P24.jpg','P4.jpg','P32.jpg','P33.jpg','P6.jpg'
     ];
+
     const slideTitles = [
-        'xPATIENCEx', 'xLEFTYx', 'xTHECOOLINGPERIODx', 'xSTORYOFTHEZODIx', 
-        'xSYXx', 'xAVENTOURENEx','xFRUITSOFWISDOMx','xBALLERINAHOPSx',
-        'xCHANGEDSUITSx','xKNOCKOUTPUNCHx', 'xSTILLKICKINx','xSINKINGCITIZENSHIPx',
-        'xGRADUATIONx','xMYFIRSTSCRIBBLEx','xSTONESx'
+        'xPATIENCEx','xLEFTYx','xTHECOOLINGPERIODx','xSTORYOFTHEZODIx',
+        'xSYXx','xAVENTOURENEx','xFRUITSOFWISDOMx','xBALLERINAHOPSx',
+        'xCHANGEDSUITSx','xKNOCKOUTPUNCHx','xSTILLKICKINx',
+        'xSINKINGCITIZENSHIPx','xGRADUATIONx','xMYFIRSTSCRIBBLEx','xSTONESx'
     ];
+
     const slideDescriptions = Array(slideImages.length).fill('By Dat Artist');
 
     let slideIndex = 0;
@@ -65,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextSlideBtn = document.querySelector('.next-slide');
 
     function updateSlide() {
-        if (slideImg) slideImg.src = slideImages[slideIndex];
+        if (!slideImg) return;
+        slideImg.src = slideImages[slideIndex];
         if (slideTitle) slideTitle.textContent = slideTitles[slideIndex];
         if (slideDesc) slideDesc.textContent = slideDescriptions[slideIndex];
     }
@@ -87,27 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlide();
 
     /* =========================
-       MODAL FOR FULL-SCREEN IMAGES
+       MODAL
     ========================= */
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-image');
     const closeModal = document.querySelector('.close-modal');
 
-    if (slideImg) {
+    if (slideImg && modal && modalImg) {
         slideImg.addEventListener('click', () => {
             modal.style.display = 'flex';
             modalImg.src = slideImg.src;
         });
     }
 
-    if (closeModal) {
+    if (closeModal && modal) {
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
         });
     }
 
     if (modal) {
-        modal.addEventListener('click', (e) => {
+        modal.addEventListener('click', e => {
             if (e.target === modal) modal.style.display = 'none';
         });
     }
@@ -128,7 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', e => {
-        if ((e.ctrlKey || e.metaKey) && ['s','u','p'].includes(e.key)) e.preventDefault();
+        if ((e.ctrlKey || e.metaKey) && ['s','u','p'].includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
     });
+
 });
 
