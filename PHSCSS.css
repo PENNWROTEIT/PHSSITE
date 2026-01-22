@@ -1,3 +1,6 @@
+/* =====================
+   GLOBAL STYLING
+===================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,15 +10,20 @@
 body {
   background: #111;
   color: white;
-  background-image: url("PHSCOLLAGEdark.jpg");
+  background-image: url("./PHSCOLLAGEdark.jpg"); /* Same folder */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
+/* =====================
+   NAVIGATION CAROUSEL
+===================== */
 .carousel-nav {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 20px 0;
+  z-index: 10;
 }
 
 .carousel-nav button {
@@ -26,8 +34,18 @@ body {
   height: 40px;
   border: none;
   cursor: pointer;
+  margin: 0 15px;
+  font-size: 20px;
+  transition: background 0.3s;
 }
 
+.carousel-nav button:hover {
+  background: #33ff00;
+}
+
+/* =====================
+   PAGE SECTIONS
+===================== */
 .page {
   display: none;
   text-align: center;
@@ -38,32 +56,70 @@ body {
   display: block;
 }
 
+/* =====================
+   LOGOS & IMAGES
+===================== */
 .site-logo {
   max-width: 100%;
   margin: 20px auto;
+  border-radius: 10px;
+  display: block;
 }
 
 .site-logo3 {
   max-width: 800px;
+  margin: 20px auto;
+  display: block;
 }
 
-.text-box,
-.text-box2,
-.text-box3,
-.text-box4 {
+/* =====================
+   TEXT BOXES
+===================== */
+.text-box {
+  background: rgba(0,0,0,0.7);
   padding: 15px;
   border-radius: 10px;
   margin: 20px auto;
   max-width: 800px;
+  text-align: left;
 }
 
-.text-box { background: rgba(0,0,0,.7); }
-.text-box4 { background: rgba(255,255,255,.7); color: black; }
+.text-box2 {
+  background: rgba(255,0,0,0.7);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: left;
+}
 
+.text-box3 {
+  background: rgba(26,0,0,0.75);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.text-box4 {
+  background: rgba(255,255,255,0.575);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  color: black;
+}
+
+/* =====================
+   SLIDESHOW
+===================== */
 .slideshow {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 20px auto;
 }
 
 .slide-btn {
@@ -72,37 +128,109 @@ body {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: background 0.3s;
+}
+
+.slide-btn:hover {
+  background: #33ff00;
+}
+
+.slide-container {
+  text-align: center;
 }
 
 .slide-container img {
   max-width: 600px;
+  height: auto;
+  border-radius: 10px;
   cursor: pointer;
 }
 
+.slide-info {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px;
+  margin: 15px auto 0;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+/* =====================
+   PORTFOLIO VIDEOS
+===================== */
 .portfolio-video {
   width: 100%;
   max-width: 800px;
   height: 450px;
   display: block;
   margin: 20px auto;
+  border-radius: 10px;
 }
 
+/* =====================
+   CONTACT FORM
+===================== */
 .contact-form {
   max-width: 600px;
-  margin: auto;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color: white;
 }
 
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #cc0000;
+}
+
+/* =====================
+   MODAL
+===================== */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.9);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
   max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }
 
 .close-modal {
@@ -110,5 +238,31 @@ body {
   top: 20px;
   right: 30px;
   font-size: 40px;
+  font-weight: bold;
+  color: white;
   cursor: pointer;
+}
+
+/* =====================
+   MEDIA QUERIES
+===================== */
+@media (max-width: 600px) {
+  .slide-container img {
+    max-width: 100%;
+  }
+
+  .portfolio-video {
+    height: auto;
+  }
+
+  .text-box, .text-box2, .text-box3, .text-box4 {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .carousel-nav button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
 }
