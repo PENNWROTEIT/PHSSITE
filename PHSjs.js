@@ -17,18 +17,23 @@ const backgrounds = [
 
 const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
 
+const repeats = ['no-repeat', 'repeat', 'no-repeat', 'repeat-x', 'repeat-y', 'no-repeat'];
+
 function updateCarousel() {
   pages.forEach(p => p.classList.remove("active"));
   pages[index].classList.add("active");
 
   const bg = backgrounds[index];
   const size = sizes[index];
+  const repeat = repeats[index];
 
   document.body.style.backgroundImage = `url("${bg}")`;
   document.body.style.backgroundSize = size;
   document.body.style.backgroundPosition = 'center';
-  document.body.style.backgroundRepeat = 'repeat';
+  document.body.style.backgroundRepeat = repeat; // apply per-page repeat
   document.body.style.backgroundAttachment = 'fixed';
+}
+
 
   // Optional: adjust height if using 'contain' to avoid blank space
   if (size === 'contain') {
