@@ -1,14 +1,9 @@
 const pages = document.querySelectorAll(".page");
 let index = 0;
 
-const backgrounds = [
-  'PHSCOLLAGEdark.jpg',
-  'KINGDAT2.jpeg',
-  'PRAYTHENPREY2.JPG',
-  'BASDUCK2.jpg',
-  'KINGDATARTIST.JPG',
-  'KINGDATARTISTEYE.JPG'
-];
+const total = pages.length;
+const backgrounds = ['PHSCOLLAGEdark.jpg', 'KINGDAT2.jpeg', 'PRAYTHENPREY2.JPG', 'BASDUCK2.jpg', 'KINGDATARTIST.JPG','KINGDATARTISTEYE.JPG'];
+const sizes = ['cover', 'contain','cover','contain','contain','contain'];
 
 function updateCarousel() {
   pages.forEach(p => p.classList.remove("active"));
@@ -31,7 +26,29 @@ document.getElementById("next").onclick = () => {
 updateCarousel();
 
 /* SLIDESHOW */
-const slideImages = ['P17.JPG','P19.JPG','P11.JPG'];
+/* SLIDESHOW */
+const slideImages = ['P17.JPG', 'P19.JPG', 'P11.JPG', 'P3.JPG', 'P16.JPG','P13.JPG','P23.JPG','P9.JPG', 'P18.JPG','P2.JPG','P24.JPG','P4.JPG', 'P32.JPG','P33.JPG','P6.JPG'];
+const slideTitles = ['xPATIENCEx', 'xLEFTYx', 'xTHECOOLINGPERIODx', 'xSTORYOFTHEZODIx', 'xSYXx', 'xAVENTOURENEx','xFRUITSOFWISDOMx','xBALLERINAHOPSx','xCHANGEDSUITSx',
+    'xKNOCKOUTPUNCHx', 'xSTILLKICKINx','xSINKINGCITIZENSHIPx','xGRADUATIONx','xMYFIRSTSCRIBBLEx','xSTONESx'
+];
+const slideDescriptions = [
+    'By Dat Artist',
+    'By Dat Artist',
+    'By Dat Artist',
+    'By Dat Artist',
+    'By Dat Artist',
+    'By Dat Artist',
+    'By Dat Artist',
+    'By Dat Artist',
+     'By Dat Artist',
+      'By Dat Artist',
+       'By Dat Artist',
+        'By Dat Artist',
+         'By Dat Artist',
+          'By Dat Artist',
+           'By Dat Artist',
+];
+
 let slideIndex = 0;
 
 const slideImg = document.getElementById("slide-image");
