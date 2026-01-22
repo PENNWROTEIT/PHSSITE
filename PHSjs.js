@@ -3,47 +3,45 @@
 // =====================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const pages = document.querySelectorAll(".page");
-  const backgrounds = [
-    'PHSCOLLAGEdark.jpg', 
-    'KINGDAT2.jpeg', 
-    'PRAYTHENPREY2.JPG', 
-    'BASDUCK2.jpg', 
-    'KINGDATARTIST.JPG',
-    'KINGDATARTISTEYE.JPG'
-  ];
-  const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
-  
-  let index = 0;
+const pages = document.querySelectorAll(".page");
+let index = 0;
 
-  const prevBtn = document.getElementById("prev");
-  const nextBtn = document.getElementById("next");
+const backgrounds = [
+  'PHSCOLLAGEdark.jpg',
+  'KINGDAT2.jpeg',
+  'PRAYTHENPREY2.JPG',
+  'BASDUCK2.jpg',
+  'KINGDATARTIST.JPG',
+  'KINGDATARTISTEYE.JPG'
+];
+const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
 
-  function updateCarousel() {
-    // Activate the correct page
-    pages.forEach(p => p.classList.remove("active"));
-    pages[index].classList.add("active");
+function updateCarousel() {
+  pages.forEach(p => p.classList.remove("active"));
+  pages[index].classList.add("active");
 
-    // Update background with proper sizing
-    document.body.style.backgroundImage = `url("${backgrounds[index]}")`;
-    document.body.style.backgroundSize = sizes[index];
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundPosition = "center center";
-    document.body.style.backgroundAttachment = "fixed";
+  document.body.style.backgroundImage = `url("${backgrounds[index]}")`;
+  document.body.style.backgroundSize = sizes[index];
+  document.body.style.backgroundPosition = 'center';
+  document.body.style.backgroundRepeat = 'no-repeat';
+  document.body.style.backgroundAttachment = 'fixed';
+}
 
-    // Optional: add background color fallback for 'contain'
-    document.body.style.backgroundColor = sizes[index] === "contain" ? "#111" : "";
-  }
+// Carousel navigation
+document.getElementById("prev").onclick = () => {
+  index = (index - 1 + pages.length) % pages.length;
+  updateCarousel();
+};
 
-  prevBtn.addEventListener("click", () => {
-    index = (index - 1 + pages.length) % pages.length;
-    updateCarousel();
-  });
+document.getElementById("next").onclick = () => {
+  index = (index + 1) % pages.length;
+  updateCarousel();
+};
 
-  nextBtn.addEventListener("click", () => {
-    index = (index + 1) % pages.length;
-    updateCarousel();
-  });
+// Initialize on page load
+window.addEventListener("DOMContentLoaded", () => {
+  updateCarousel();
+});
 
   // Initialize carousel on page load
   updateCarousel();
