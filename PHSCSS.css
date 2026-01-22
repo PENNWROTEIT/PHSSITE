@@ -10,8 +10,7 @@
 body {
   background: #111;
   color: white;
-  background-image: url("./PHSCOLLAGEdark.jpg"); /* Same folder */
-  background-size: cover;
+
   background-position: center;
   background-attachment: fixed;
 }
