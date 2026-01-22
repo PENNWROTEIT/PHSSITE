@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- 🔴 CRITICAL FIX: FORCE SAME-FOLDER PATH RESOLUTION -->
+    <base href="./">
+
     <title>PUREHEARTSHOW.com</title>
-    <link rel="stylesheet" href="PHScss.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./PHScss.css">
+
+    <!-- Favicon (prevents console 404) -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
 <nav class="carousel-nav">
     <button id="prev">&lt;</button>
     <button id="next">&gt;</button>
@@ -16,122 +24,58 @@
 
 <main id="pages">
 
-<!-- PAGE 1 -->
 <section class="page active">
     <h1>Welcome to the</h1>
-    <img src="PUREHEARTSHOWTXT94ADDD2.png" alt="PUREHEARTSHOW Logo" class="site-logo" loading="lazy">
+    <img src="./PUREHEARTSHOWTXT94ADDD2.png" class="site-logo" alt="PUREHEARTSHOW Logo">
     <p>Established in 2013</p>
 </section>
 
-<!-- PAGE 2 -->
 <section class="page">
     <h1>ABOUT THE OWNER</h1>
 
-    <img src="Subject.png" class="site-logo" loading="lazy">
-    <img src="NAMEINWHITE2.png" class="site-logo3" loading="lazy">
+    <img src="./Subject.png" class="site-logo">
+    <img src="./NAMEINWHITE2.png" class="site-logo3">
 
     <h1>ACCOLADES</h1>
-    <p>(*Not limited to all)</p>
-
-    <p class="text-box">
-        "Art isn’t just what I do, it’s how I think..."
-    </p>
-
-    <h1>Pureheartshow | Art Exhibitions & Visual Services</h1>
-    <p>2013 - Present</p>
 
     <ul>
         <li class="text-box">Awarded Artist of the Year...</li>
         <li class="text-box">Built and maintained a network...</li>
         <li class="text-box">Over 100 murals commissioned...</li>
-        <li class="text-box">Over 10,000 hours of experience...</li>
-        <li class="text-box">Generated 97K+ views...</li>
-        <li class="text-box">Opened The Pureheartshow Art Gallery...</li>
-        <li class="text-box">Launched youth art class...</li>
-        <li class="text-box">Best Painter of The 757 (2019)</li>
         <li class="text-box">Illustrated over 10 books...</li>
     </ul>
 
     <h1>BIO ABOUT "DAT ARTIST"</h1>
-
     <p class="text-box2">Stefon Penn, known artistically as Dat Artist...</p>
-    <p class="text-box2">After graduation, Stefon worked in retail...</p>
-    <p class="text-box2">From 2013 onward, Stefon fully dedicated...</p>
-    <p class="text-box2">Beyond personal success, Stefon has been...</p>
-    <p class="text-box2">Today, Stefon Penn is a multifaceted artist...</p>
 </section>
 
-<!-- PAGE 3 -->
 <section class="page">
     <h1 class="text-box4">PORTFOLIO</h1>
-
-    <p class="text-box3">Examples of artwork created by Dat Artist</p>
 
     <div class="slideshow">
         <button class="slide-btn prev-slide">&lt;</button>
 
         <div class="slide-container">
-            <!-- 🔴 FIXED IMAGE PATH -->
-            <img id="slide-image" src="PHSGALLERY.jpg" loading="lazy">
-            <div class="slide-info">
-                <h2 id="slide-title">Gallery View</h2>
-                <p id="slide-description">Artwork collection</p>
-            </div>
+            <img id="slide-image" src="./PHSGALLERY.jpg">
         </div>
 
         <button class="slide-btn next-slide">&gt;</button>
     </div>
-
-    <section class="instagram-feed">
-        <h2>Latest Instagram Post</h2>
-        <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/dat_artist_yokomeetri/"
-            data-instgrm-version="14">
-        </blockquote>
-        <script async src="https://www.instagram.com/embed.js"></script>
-    </section>
-
-    <h1>For more artwork or questions, please refer to the CONTACT page</h1>
 </section>
 
-<!-- PAGE 4 -->
 <section class="page">
     <h1 class="text-box4">VIDEOS</h1>
 
     <iframe class="portfolio-video" src="https://www.youtube.com/embed/vRUkPvQp5Gk" allowfullscreen></iframe>
-    <iframe class="portfolio-video" src="https://www.youtube.com/embed/36kQpiC3BGA" allowfullscreen></iframe>
-    <iframe class="portfolio-video" src="https://www.youtube.com/embed/B6AlW9UdkeM" allowfullscreen></iframe>
-    <iframe class="portfolio-video" src="https://www.youtube.com/embed/OBM0BZr9lYw" allowfullscreen></iframe>
-    <iframe class="portfolio-video" src="https://www.youtube.com/embed/AXIoRi2NHbo" allowfullscreen></iframe>
-
-    <a href="https://www.youtube.com/@DatArtistYokoMeetri" target="_blank" class="subscribe-btn">Subscribe</a>
 </section>
 
-<!-- PAGE 5 -->
-<section class="page">
-    <h1 class="text-box4">SERVICES</h1>
-    <p class="text-box3">Realistic Portraits</p>
-    <p class="text-box3">Murals</p>
-    <p class="text-box3">Graphic Design</p>
-    <p class="text-box3">Animation</p>
-    <p class="text-box3">Art Lessons</p>
-    <p class="text-box3">Website Development</p>
-</section>
-
-<!-- PAGE 6 -->
 <section class="page">
     <h1 class="text-box4">Contact</h1>
 
-    <form class="contact-form"
-        action="https://formspree.io/f/xaqqbblj"
-        method="POST"
-        enctype="multipart/form-data">
-
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="tel" name="phone" placeholder="Phone" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-        <input type="file" name="file">
+    <form action="https://formspree.io/f/xaqqbblj" method="POST">
+        <input type="text" name="name" required placeholder="Name">
+        <input type="email" name="email" required placeholder="Email">
+        <textarea name="message" required placeholder="Message"></textarea>
         <button type="submit">Send</button>
     </form>
 </section>
@@ -142,8 +86,8 @@
     <p>© 2026 Pureheartshow.com</p>
 </footer>
 
-<script src="PHSjs.js"></script>
+<!-- JS -->
+<script src="./PHSjs.js"></script>
+
 </body>
 </html>
-
-
