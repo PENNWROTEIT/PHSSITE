@@ -14,20 +14,31 @@ const backgrounds = [
   'KINGDATARTIST.JPG',
   'KINGDATARTISTEYE.JPG'
 ];
+
 const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
 
 function updateCarousel() {
   pages.forEach(p => p.classList.remove("active"));
   pages[index].classList.add("active");
 
-  document.body.style.backgroundImage = `url("${backgrounds[index]}")`;
-  document.body.style.backgroundSize = sizes[index];
+  const bg = backgrounds[index];
+  const size = sizes[index];
+
+  document.body.style.backgroundImage = `url("${bg}")`;
+  document.body.style.backgroundSize = size;
   document.body.style.backgroundPosition = 'center';
   document.body.style.backgroundRepeat = 'no-repeat';
   document.body.style.backgroundAttachment = 'fixed';
+
+  // Optional: adjust height if using 'contain' to avoid blank space
+  if (size === 'contain') {
+    document.body.style.height = '100vh';
+  } else {
+    document.body.style.height = '100%';
+  }
 }
 
-// Carousel navigation
+// Navigation
 document.getElementById("prev").onclick = () => {
   index = (index - 1 + pages.length) % pages.length;
   updateCarousel();
@@ -38,10 +49,11 @@ document.getElementById("next").onclick = () => {
   updateCarousel();
 };
 
-// Initialize on page load
+// Initialize
 window.addEventListener("DOMContentLoaded", () => {
   updateCarousel();
 });
+
 
   // Initialize carousel on page load
   updateCarousel();
