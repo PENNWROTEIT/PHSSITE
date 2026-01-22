@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.backgroundSize = size;
     document.body.style.backgroundRepeat = repeat;
     document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundAttachment = fixed;
+    document.body.style.backgroundAttachment = attach; 
 
     // Adjust height for 'contain'
     document.body.style.height = size === 'contain' ? '100vh' : '100%';
