@@ -361,3 +361,22 @@ body {
 .footer-section a:hover {
   text-decoration: underline;
 }
+
+
+/* Subtle pulsing animation for main image */
+.pulse {
+  animation: subtlePulse 3s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02); /* very slight enlargement */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
