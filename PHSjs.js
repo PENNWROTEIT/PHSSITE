@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     'KINGDATARTISTEYE.JPG'
   ];
 
-  const sizes = ['cover', 'contain', 'cover', 'contain', 'center', 'contain'];
+  const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
   const repeats = ['no-repeat', 'repeat-x', 'no-repeat', 'repeat-x', 'repeat-x', 'repeat-x'];
   const attachments = ['fixed', 'fixed', 'fixed', 'fixed', 'fixed', 'fixed'];
 
