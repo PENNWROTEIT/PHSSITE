@@ -23,8 +23,10 @@ body {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  position: relative; 
   z-index: 10;
 }
+
 
 .carousel-nav button {
   background: red;
@@ -222,6 +224,7 @@ body {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.9);
+  display: flex; 
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -271,7 +274,7 @@ body {
 
 .instagram-feed {
   max-width: 1000px;
-  margin: center;
+  margin: auto;
 }
 
 .instagram-media {
