@@ -1,11 +1,14 @@
 // =====================
-// CAROUSEL & BACKGROUND
+// FULL SITE SCRIPT
 // =====================
 document.addEventListener("DOMContentLoaded", () => {
-  const pages = document.querySelectorAll(".page");
-  let index = 0;
 
-  // Background settings for each page
+  // =====================
+  // CAROUSEL & BACKGROUNDS
+  // =====================
+  const pages = document.querySelectorAll(".page");
+  let pageIndex = 0;
+
   const backgrounds = [
     'PHSCOLLAGEdark.jpg',
     'KINGDAT2.jpeg',
@@ -17,61 +20,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
   const repeats = ['no-repeat', 'repeat-x', 'no-repeat', 'repeat-x', 'repeat-x', 'no-repeat'];
+  const attachments = ['fixed', 'scroll', 'fixed', 'scroll', 'scroll', 'fixed'];
 
   function updateCarousel() {
-    // Show active page
+    // Update active page
     pages.forEach(p => p.classList.remove("active"));
-    pages[index].classList.add("active");
+    pages[pageIndex].classList.add("active");
 
-    // Set per-page background
-    const bg = backgrounds[index];
-    const size = sizes[index];
-    const repeat = repeats[index];
+    // Update background
+    const bg = backgrounds[pageIndex];
+    const size = sizes[pageIndex];
+    const repeat = repeats[pageIndex];
+    const attach = attachments[pageIndex];
 
     document.body.style.backgroundImage = `url("${bg}")`;
     document.body.style.backgroundSize = size;
-    document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = repeat;
-    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundAttachment = attach;
 
-    // Adjust height for 'contain' to avoid blank space
+    // Adjust height for 'contain'
     document.body.style.height = size === 'contain' ? '100vh' : '100%';
   }
 
-  // Navigation
+  // Carousel navigation
   document.getElementById("prev").onclick = () => {
-    index = (index - 1 + pages.length) % pages.length;
+    pageIndex = (pageIndex - 1 + pages.length) % pages.length;
     updateCarousel();
   };
 
   document.getElementById("next").onclick = () => {
-    index = (index + 1) % pages.length;
+    pageIndex = (pageIndex + 1) % pages.length;
     updateCarousel();
   };
 
-  // Initialize carousel
-  updateCarousel();
+  updateCarousel(); // initialize
 
   // =====================
   // SLIDESHOW
   // =====================
   const slideImages = [
-    'P17.JPG', 'P19.JPG', 'P11.JPG', 'P3.JPG', 'P16.JPG',
-    'P13.JPG', 'P23.JPG', 'P9.JPG', 'P18.JPG', 'P2.JPG',
-    'P24.JPG', 'P4.JPG', 'P32.JPG', 'P33.JPG', 'P6.JPG'
+    'P17.JPG','P19.JPG','P11.JPG','P3.JPG','P16.JPG','P13.JPG','P23.JPG',
+    'P9.JPG','P18.JPG','P2.JPG','P24.JPG','P4.JPG','P32.JPG','P33.JPG','P6.JPG'
   ];
 
   const slideTitles = [
-    'xPATIENCEx', 'xLEFTYx', 'xTHECOOLINGPERIODx', 'xSTORYOFTHEZODIx', 'xSYXx',
-    'xAVENTOURENEx', 'xFRUITSOFWISDOMx', 'xBALLERINAHOPSx', 'xCHANGEDSUITSx',
-    'xKNOCKOUTPUNCHx', 'xSTILLKICKINx', 'xSINKINGCITIZENSHIPx', 'xGRADUATIONx',
-    'xMYFIRSTSCRIBBLEx', 'xSTONESx'
+    'xPATIENCEx','xLEFTYx','xTHECOOLINGPERIODx','xSTORYOFTHEZODIx',
+    'xSYXx','xAVENTOURENEx','xFRUITSOFWISDOMx','xBALLERINAHOPSx',
+    'xCHANGEDSUITSx','xKNOCKOUTPUNCHx','xSTILLKICKINx','xSINKINGCITIZENSHIPx',
+    'xGRADUATIONx','xMYFIRSTSCRIBBLEx','xSTONESx'
   ];
 
   const slideDescriptions = Array(slideImages.length).fill('By Dat Artist');
 
   let slideIndex = 0;
-
   const slideImg = document.getElementById("slide-image");
   const slideTitle = document.getElementById("slide-title");
   const slideDesc = document.getElementById("slide-description");
@@ -92,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlide();
   });
 
-  updateSlide();
+  updateSlide(); // initialize slideshow
 
   // =====================
   // MODAL
@@ -101,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImg = document.getElementById("modal-image");
   const closeModal = document.querySelector(".close-modal");
 
-  modal.style.display = "none"; // hide modal initially
+  modal.style.display = "none";
 
   slideImg.addEventListener("click", () => {
     if (slideImg.src) {
@@ -113,5 +115,5 @@ document.addEventListener("DOMContentLoaded", () => {
   closeModal.addEventListener("click", () => {
     modal.style.display = "none";
   });
-});
 
+});
