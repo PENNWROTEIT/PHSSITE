@@ -266,3 +266,97 @@ body {
     font-size: 18px;
   }
 }
+
+-------------INSTAGRAM POST OPTIONS--------------
+
+.instagram-feed {
+  max-width: 1000px;
+  margin: center;
+}
+
+.instagram-media {
+  width: 100% !important;
+  max-width: 1000px !important;
+}
+
+/* Section centers content on the page */
+.instagram-link-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* The container box */
+.instagram-link-container {
+  padding: 20px 40px;
+  border: 2px solid #e1306c; /* Instagram pink */
+  border-radius: 12px;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Link styling */
+.instagram-link-container a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e1306c;
+  text-decoration: none;
+}
+
+/* Hover effect */
+.instagram-link-container a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== */
+/* Global Footer Styling */
+/* ===================== */
+
+.site-footer {
+  background-color: #111;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: #e1306c; /* Instagram pink */
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
