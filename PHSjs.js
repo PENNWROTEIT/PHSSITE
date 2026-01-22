@@ -15,7 +15,7 @@ const backgrounds = [
   'KINGDATARTISTEYE.JPG'
 ];
 
-const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
+const sizes = ['cover', 'contain', 'cover', 'contain', 'cover', 'contain'];
 
 const repeats = ['no-repeat', 'repeat', 'no-repeat', 'repeat-x', 'repeat-y', 'no-repeat'];
 
