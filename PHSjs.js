@@ -41,7 +41,6 @@ function updateCarousel() {
   } else {
     document.body.style.height = '100%';
   }
-}
 
 // Navigation
 document.getElementById("prev").onclick = () => {
