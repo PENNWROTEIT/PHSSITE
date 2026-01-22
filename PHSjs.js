@@ -6,8 +6,8 @@ const backgrounds = [
   'KINGDAT2.jpeg',
   'PRAYTHENPREY2.JPG',
   'BASDUCK2.jpg',
-  'KINGDATARTIST.jpg',
-  'KINGDATARTISTEYE.jpg'
+  'KINGDATARTIST.JPG',
+  'KINGDATARTISTEYE.JPG'
 ];
 
 function updateCarousel() {
@@ -31,7 +31,7 @@ document.getElementById("next").onclick = () => {
 updateCarousel();
 
 /* SLIDESHOW */
-const slideImages = ['p17.jpg','P19.jpg','P11.jpg'];
+const slideImages = ['P17.JPG','P19.JPG','P11.JPG'];
 let slideIndex = 0;
 
 const slideImg = document.getElementById("slide-image");
