@@ -11,7 +11,10 @@ function updateCarousel() {
 
   document.body.style.backgroundImage =
     `url("${backgrounds[index]}")`;
+  document.body.style.backgroundSize = sizes[index];
+
 }
+
 
 document.getElementById("prev").onclick = () => {
   index = (index - 1 + pages.length) % pages.length;
@@ -55,7 +58,10 @@ const slideImg = document.getElementById("slide-image");
 
 function updateSlide() {
   slideImg.src = slideImages[slideIndex];
+  document.getElementById("slide-title").textContent = slideTitles[slideIndex];
+  document.getElementById("slide-description").textContent = slideDescriptions[slideIndex];
 }
+
 
 document.querySelector(".prev-slide").onclick = () => {
   slideIndex = (slideIndex - 1 + slideImages.length) % slideImages.length;
