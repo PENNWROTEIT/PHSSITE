@@ -27,7 +27,7 @@ function updateCarousel() {
   document.body.style.backgroundImage = `url("${bg}")`;
   document.body.style.backgroundSize = size;
   document.body.style.backgroundPosition = 'center';
-  document.body.style.backgroundRepeat = 'no-repeat';
+  document.body.style.backgroundRepeat = 'repeat';
   document.body.style.backgroundAttachment = 'fixed';
 
   // Optional: adjust height if using 'contain' to avoid blank space
