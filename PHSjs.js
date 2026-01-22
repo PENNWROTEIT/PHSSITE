@@ -1,76 +1,77 @@
 // =====================
 // CAROUSEL & BACKGROUND
 // =====================
-
 document.addEventListener("DOMContentLoaded", () => {
-const pages = document.querySelectorAll(".page");
-let index = 0;
+  const pages = document.querySelectorAll(".page");
+  let index = 0;
 
-const backgrounds = [
-  'PHSCOLLAGEdark.jpg',
-  'KINGDAT2.jpeg',
-  'PRAYTHENPREY2.JPG',
-  'BASDUCK2.jpg',
-  'KINGDATARTIST.JPG',
-  'KINGDATARTISTEYE.JPG'
-];
+  // Background settings for each page
+  const backgrounds = [
+    'PHSCOLLAGEdark.jpg',
+    'KINGDAT2.jpeg',
+    'PRAYTHENPREY2.JPG',
+    'BASDUCK2.jpg',
+    'KINGDATARTIST.JPG',
+    'KINGDATARTISTEYE.JPG'
+  ];
 
-const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
+  const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
+  const repeats = ['no-repeat', 'repeat-x', 'no-repeat', 'repeat-x', 'repeat-x', 'no-repeat'];
 
-const repeats = ['no-repeat', 'repeat-x', 'no-repeat', 'repeat-x', 'repeat-x', 'no-repeat'];
+  function updateCarousel() {
+    // Show active page
+    pages.forEach(p => p.classList.remove("active"));
+    pages[index].classList.add("active");
 
-function updateCarousel() {
-  pages.forEach(p => p.classList.remove("active"));
-  pages[index].classList.add("active");
+    // Set per-page background
+    const bg = backgrounds[index];
+    const size = sizes[index];
+    const repeat = repeats[index];
 
-  const bg = backgrounds[index];
-  const size = sizes[index];
-  const repeat = repeats[index];
+    document.body.style.backgroundImage = `url("${bg}")`;
+    document.body.style.backgroundSize = size;
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = repeat;
+    document.body.style.backgroundAttachment = 'fixed';
 
-  document.body.style.backgroundImage = `url("${bg}")`;
-  document.body.style.backgroundSize = size;
-  document.body.style.backgroundPosition = 'center';
-  document.body.style.backgroundRepeat = repeat; // apply per-page repeat
-  document.body.style.backgroundAttachment = 'fixed';
-}
-
-
-  // Optional: adjust height if using 'contain' to avoid blank space
-  if (size === 'contain') {
-    document.body.style.height = '100vh';
-  } else {
-    document.body.style.height = '100%';
+    // Adjust height for 'contain' to avoid blank space
+    document.body.style.height = size === 'contain' ? '100vh' : '100%';
   }
 
-// Navigation
-document.getElementById("prev").onclick = () => {
-  index = (index - 1 + pages.length) % pages.length;
-  updateCarousel();
-};
+  // Navigation
+  document.getElementById("prev").onclick = () => {
+    index = (index - 1 + pages.length) % pages.length;
+    updateCarousel();
+  };
 
-document.getElementById("next").onclick = () => {
-  index = (index + 1) % pages.length;
-  updateCarousel();
-};
+  document.getElementById("next").onclick = () => {
+    index = (index + 1) % pages.length;
+    updateCarousel();
+  };
 
-// Initialize
-window.addEventListener("DOMContentLoaded", () => {
-  updateCarousel();
-});
-
-
-  // Initialize carousel on page load
+  // Initialize carousel
   updateCarousel();
 
   // =====================
   // SLIDESHOW
   // =====================
-  const slideImages = ['P17.JPG', 'P19.JPG', 'P11.JPG', 'P3.JPG', 'P16.JPG','P13.JPG','P23.JPG','P9.JPG', 'P18.JPG','P2.JPG','P24.JPG','P4.JPG', 'P32.JPG','P33.JPG','P6.JPG'];
-  const slideTitles = ['xPATIENCEx', 'xLEFTYx', 'xTHECOOLINGPERIODx', 'xSTORYOFTHEZODIx', 'xSYXx', 'xAVENTOURENEx','xFRUITSOFWISDOMx','xBALLERINAHOPSx','xCHANGEDSUITSx',
-      'xKNOCKOUTPUNCHx', 'xSTILLKICKINx','xSINKINGCITIZENSHIPx','xGRADUATIONx','xMYFIRSTSCRIBBLEx','xSTONESx'];
-  const slideDescriptions = Array(slideImages.length).fill('By Dat Artist'); // shorthand for repeated text
+  const slideImages = [
+    'P17.JPG', 'P19.JPG', 'P11.JPG', 'P3.JPG', 'P16.JPG',
+    'P13.JPG', 'P23.JPG', 'P9.JPG', 'P18.JPG', 'P2.JPG',
+    'P24.JPG', 'P4.JPG', 'P32.JPG', 'P33.JPG', 'P6.JPG'
+  ];
+
+  const slideTitles = [
+    'xPATIENCEx', 'xLEFTYx', 'xTHECOOLINGPERIODx', 'xSTORYOFTHEZODIx', 'xSYXx',
+    'xAVENTOURENEx', 'xFRUITSOFWISDOMx', 'xBALLERINAHOPSx', 'xCHANGEDSUITSx',
+    'xKNOCKOUTPUNCHx', 'xSTILLKICKINx', 'xSINKINGCITIZENSHIPx', 'xGRADUATIONx',
+    'xMYFIRSTSCRIBBLEx', 'xSTONESx'
+  ];
+
+  const slideDescriptions = Array(slideImages.length).fill('By Dat Artist');
 
   let slideIndex = 0;
+
   const slideImg = document.getElementById("slide-image");
   const slideTitle = document.getElementById("slide-title");
   const slideDesc = document.getElementById("slide-description");
@@ -100,8 +101,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const modalImg = document.getElementById("modal-image");
   const closeModal = document.querySelector(".close-modal");
 
-  // Hide modal initially
-  modal.style.display = "none";
+  modal.style.display = "none"; // hide modal initially
 
   slideImg.addEventListener("click", () => {
     if (slideImg.src) {
