@@ -61,7 +61,7 @@ const nextSlide = document.querySelector('.next-slide');
 
 function updateSlide() {
     if (slideImg) {
-        slideImg.src = `../PHS IMAGES/${slideImages[slideIndex]}`;
+        slideImg.src = `${slideImages[slideIndex]}`;
     }
     if (slideTitle) {
         slideTitle.textContent = slideTitles[slideIndex];
