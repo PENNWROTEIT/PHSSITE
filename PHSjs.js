@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
   const repeats = ['no-repeat', 'repeat-x', 'no-repeat', 'repeat-x', 'repeat-x', 'no-repeat'];
-  const attachments = ['fixed', 'scroll', 'fixed', 'scroll', 'scroll', 'fixed'];
+  const attachments = ['fixed', 'fixed', 'fixed', 'fixed', 'fixed', 'fixed'];
 
   function updateCarousel() {
     // Update active page
