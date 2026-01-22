@@ -17,7 +17,7 @@ const backgrounds = [
 
 const sizes = ['cover', 'contain', 'cover', 'contain', 'contain', 'contain'];
 
-const repeats = ['no-repeat', 'repeat', 'no-repeat', 'repeat-x', 'repeat-y', 'no-repeat'];
+const repeats = ['no-repeat', 'repeat-x', 'no-repeat', 'repeat-x', 'repeat-x', 'no-repeat'];
 
 function updateCarousel() {
   pages.forEach(p => p.classList.remove("active"));
